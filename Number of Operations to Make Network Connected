@@ -1,0 +1,47 @@
+//Number of Operations to Make Network Connected
+class Solution {
+public:
+    
+    void dfs(int node,vector<vector<int>> &adj,vector<int> &vis)
+    {
+        vis[node] = 1;
+        for(auto it: adj[node])
+        {
+            if(vis[it]==-1)
+            {
+                
+                dfs(it,adj,vis);
+            }
+        }
+    }
+    int makeConnected(int n, vector<vector<int>>& connections)
+    {
+        vector<vector<int>> adj;
+        adj.resize(n);
+        for(int i=0;i<size(connections);i++)
+        {
+            adj[connections[i][0]].push_back(connections[i][1]);
+            adj[connections[i][1]].push_back(connections[i][0]);
+        }
+        vector<int> vis(n,-1);
+        int c = 0;
+        for(int i=0;i<n;i++)
+        {
+           if(vis[i]==-1)
+           {
+
+              dfs(i,adj,vis);
+              c=c+1;
+           }
+        }
+         
+        int edges = size(connections);
+        if(edges < n-1)
+        return -1;
+        return c-1;
+
+
+
+        
+    }
+};
