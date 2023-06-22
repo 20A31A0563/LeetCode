@@ -17,7 +17,7 @@ class Solution:
                 i= j 
                 j=j+1
             else:
-                if l[j][1] <= l[i][1]:
+                if l[j][1] < l[i][1]:
                     i = j
                 j=j+1 
                 c=c+1
