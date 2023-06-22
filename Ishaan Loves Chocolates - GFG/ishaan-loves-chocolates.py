@@ -3,14 +3,7 @@ from typing import List
 
 class Solution:
     def chocolates(self, n : int, arr : List[int]) -> int:
-        i = 0
-        j = len(arr)-1
-        while(i<j and i<len(arr) and j>=0):
-            if arr[i]>arr[j]:
-                i=i+1
-            else:
-                j=j-1
-        return arr[i]
+        return min(arr)
         
 
 
